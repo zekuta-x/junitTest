@@ -9,5 +9,9 @@ public class SaiyoPrjApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SaiyoPrjApplication.class, args);
 	}
+	
+	public int testNum() {
+		return 1;
+	}
 
 }
