@@ -4,6 +4,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class JudgeUtils extends MiraiPrjApplication{
+	
 	/**
 	 * 課金可能か判定するメソッド<br>
 	 * 18歳を超えている場合は課金可能<br>
@@ -16,7 +17,7 @@ public class JudgeUtils extends MiraiPrjApplication{
 	 */
 	public boolean isBillingAge(int age) {
 		// 課金可能年齢(対象かつ18歳以上)
-		if(age >= WORKABLE_AGE) {
+		if(age >= PLAYABLE_AGE) {
 			return true;
 		// 課金不可
 		} else {
@@ -51,8 +52,8 @@ public class JudgeUtils extends MiraiPrjApplication{
 		int compareYear = 0;
 		// 現在の月が1～3月の場合
 		if (curMonth < APRIL) {
-			// 比較用年月日 = 現在の西暦マイナス16年した4月1日
-			compareYear = curYear - WORKABLE_AGE;
+			// 比較用年月日 = 現在の西暦マイナス18年した4月1日
+			compareYear = curYear - PLAYABLE_AGE;
 			compareCal.set(compareYear, Calendar.APRIL, 1);
 			// 比較用年月日よりあとの生年月日ならエラー
 			if (birthCal.compareTo(compareCal) > 0) {
@@ -60,8 +61,8 @@ public class JudgeUtils extends MiraiPrjApplication{
 			}
 		} else {
 			// 現在の月が4～12月の場合
-			// 比較用年月日 = 現在の西暦マイナス15年した4月1日
-			compareYear = curYear - (WORKABLE_AGE - 1);
+			// 比較用年月日 = 現在の西暦マイナス17年した4月1日
+			compareYear = curYear - (PLAYABLE_AGE - 1);
 			compareCal.set(compareYear, Calendar.APRIL, 1);
 			// 比較用年月日よりあとの生年月日ならエラー
 			if (birthCal.compareTo(compareCal) > 0) {

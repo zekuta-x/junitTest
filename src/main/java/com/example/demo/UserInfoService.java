@@ -21,17 +21,14 @@ public class UserInfoService extends MiraiPrjApplication{
 		Map userInfo = new HashMap<>();
 		// プレイ可能判断
 		if(judgeUtils.isRegisterdAge(birthDay)) {
-			try {
 				userInfo.put("playF", "1");
+				
 				// 課金可能判断
 				if(judgeUtils.isBillingAge(age)) {
 					userInfo.put("billingF", "1");
 				} else {
 					userInfo.put("billingF", "0");
 				}
-			} catch(Exception e) {
-				throw new Exception("想定外のエラー");
-			}
 		} else {
 			userInfo.put("playF", "0");
 			userInfo.put("billingF", "0");
