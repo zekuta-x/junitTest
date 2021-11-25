@@ -10,9 +10,9 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>junitTest</artifactId>
+	<artifactId>saiyo_prj</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>junitTest</name>
+	<name>saiyo_prj</name>
 	<description>Demo project for Spring Boot</description>
 	<repositories>
 		<repository>
@@ -68,18 +68,6 @@
 	</dependencies>
 
 	<build>
-		<testResources>
-			<testResource>
-				<directory>${project.basedir}/src/test/java</directory>
-			</testResource>
-			<testResource>
-				<directory>${project.basedir}/src/test/${overrideResourceName}/resources</directory>
-			</testResource>
-			<testResource>
-				<directory>${project.basedir}/src/test/resources</directory>
-			</testResource>
-		</testResources>
-	
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
@@ -93,43 +81,25 @@
 					</excludes>
 				</configuration>
 			</plugin>
-			
 			<plugin>
- 				<groupId>org.apache.maven.plugins</groupId>
- 				<artifactId>maven-surefire-plugin</artifactId>
- 				<version>2.16</version>
- 				<configuration>
- 					<argLine>${jacocoArgs} -Xms64m -Xmx1024m</argLine>
- 				</configuration>
- 			</plugin>
- 		
- 			<plugin>
- 				<groupId>org.jacoco</groupId>
- 				<artifactId>jacoco-maven-plugin</artifactId>
- 				<version>0.7.7.201606060606</version>
- 				<executions>
- 					<execution>
- 						<id>prepare-agent</id>
- 						<phase>test-compile</phase>
- 						<goals>
- 							<goal>prepare-agent</goal>
- 						</goals>
- 						<configuration>
- 							<propertyName>jacocoArgs</propertyName>
- 							<includes>
- 								<include>*</include>
- 							</includes>
- 						</configuration>
- 					</execution>
- 					<execution>
- 						<id>report</id>
- 						<phase>prepare-package</phase>
- 						<goals>
- 							<goal>report</goal>
- 						</goals>
- 					</execution>
- 				</executions>
- 			</plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.8.2</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>report</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 	<reporting>
@@ -137,6 +107,14 @@
 			<plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<!-- select non-aggregate reports -->
+							<report>report</report>
+						</reports>
+					</reportSet>
+				</reportSets>
 			</plugin>
 		</plugins>
 	</reporting>
