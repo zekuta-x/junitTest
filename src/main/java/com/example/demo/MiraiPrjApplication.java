@@ -10,6 +10,7 @@ public class MiraiPrjApplication {
 	// 定数
 	public static final int APRIL = 4;
 	public static final int PLAYABLE_AGE = 18;
+	public static final int BILLINGABLE_AGE = 18;
 
 	// main処理
 	public static void main(String[] args) {

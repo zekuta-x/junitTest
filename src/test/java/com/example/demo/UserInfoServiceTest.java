@@ -23,13 +23,12 @@ class UserInfoServiceTest {
 	// ケースNo1
 	// ケース内容：プレイ対象でかつ課金対象
 	// 引数：日時=現在日時, 年齢=18歳
-	// Mock：isRegisterdAge()をtrueで返却
+	// Mock：isRegisterdAge(),isBillingAge()をtrueで返却
 	// 合格条件：ユーザー情報Mapに{playF=1,billingF=1}が格納されていること
 	@Test
 	public void testCreateUserInfo_プレイ対象_課金対象() throws Exception {
 		// 引数
 		Date date = new Date();
-		int age = 18;
 
 		// 実行
 		MockUp<JudgeUtils> mock = new MockUp<JudgeUtils>() {
@@ -37,9 +36,13 @@ class UserInfoServiceTest {
 			public boolean isRegisterdAge(Date birthDay) {
 				return true;
 			}
+			@Mock
+			public boolean isBillingAge(Date birthDay) {
+				return true;
+			}
 		};
 		
-		Map<String, String> actual = target.createUserInfo(date, age);
+		Map<String, String> actual = target.createUserInfo(date);
 		
 		// 結果
 		assertThat(actual.size(), is(2));
@@ -51,14 +54,13 @@ class UserInfoServiceTest {
 	
 	// ケースNo2 
 	// ケース内容：プレイ対象でかつ課金対象でない
-	// 引数：日時=現在日時, 年齢=17歳
-	// Mock：isRegisterdAge()をtrueで返却
+	// 引数：日時=現在日時
+	// Mock：isRegisterdAge()をtrue,isBillingAge()をfalseで返却
 	// 合格条件：ユーザー情報Mapに{playF=1,billingF=0}が格納されていること
 	@Test
 	public void testCreateUserInfo_プレイ対象_課金対象でない() throws Exception {
 		// 引数
 		Date date = new Date();
-		int age = 17;
 
 		// 実行
 		MockUp<JudgeUtils> mock = new MockUp<JudgeUtils>() {
@@ -66,9 +68,13 @@ class UserInfoServiceTest {
 			public boolean isRegisterdAge(Date birthDay) {
 				return true;
 			}
+			@Mock
+			public boolean isBillingAge(Date birthDay) {
+				return false;
+			}
 		};
 		
-		Map<String, String> actual = target.createUserInfo(date, age);
+		Map<String, String> actual = target.createUserInfo(date);
 		
 		// 結果
 		assertThat(actual.size(), is(2));
@@ -80,14 +86,13 @@ class UserInfoServiceTest {
 
 	// ケースNo3
 	// ケース内容：プレイ対象でないかつ課金対象
-	// 引数：日時=現在日時, 年齢=18歳
-	// Mock：isRegisterdAge()をfalseで返却
+	// 引数：日時=現在日時
+	// Mock：isRegisterdAge()をfalse,isBillingAge()をtrueで返却
 	// 合格条件：ユーザー情報Mapに{playF=0,billingF=0}が格納されていること
 	@Test
 	public void testCreateUserInfo_プレイ対象でない_課金対象() throws Exception {
 		// 引数
 		Date date = new Date();
-		int age = 18;
 
 		// 実行
 		MockUp<JudgeUtils> mock = new MockUp<JudgeUtils>() {
@@ -95,9 +100,13 @@ class UserInfoServiceTest {
 			public boolean isRegisterdAge(Date birthDay) {
 				return false;
 			}
+			@Mock
+			public boolean isBillingAge(Date birthDay) {
+				return true;
+			}
 		};
 		
-		Map<String, String> actual = target.createUserInfo(date, age);
+		Map<String, String> actual = target.createUserInfo(date);
 		
 		// 結果
 		assertThat(actual.size(), is(2));
@@ -109,14 +118,13 @@ class UserInfoServiceTest {
 	
 	// ケースNo4
 	// ケース内容：プレイ対象でないかつ課金対象でない
-	// 引数：日時=現在日時, 年齢=17歳
-	// Mock：isRegisterdAge()をfalseで返却
+	// 引数：日時=現在日時
+	// Mock：isRegisterdAge(),isBillingAge()をfalseで返却
 	// 合格条件：ユーザー情報Mapに{playF=0,billingF=0}が格納されていること
 	@Test
 	public void testCreateUserInfo_プレイ対象でない_課金対象でない() throws Exception {
 		// 引数
 		Date date = new Date();
-		int age = 17;
 
 		// 実行
 		MockUp<JudgeUtils> mock = new MockUp<JudgeUtils>() {
@@ -124,9 +132,13 @@ class UserInfoServiceTest {
 			public boolean isRegisterdAge(Date birthDay) {
 				return false;
 			}
+			@Mock
+			public boolean isBillingAge(Date birthDay) {
+				return false;
+			}
 		};
 		
-		Map<String, String> actual = target.createUserInfo(date, age);
+		Map<String, String> actual = target.createUserInfo(date);
 		
 		// 結果
 		assertThat(actual.size(), is(2));

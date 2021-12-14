@@ -12,19 +12,17 @@ public class UserInfoService extends MiraiPrjApplication{
 	 * ユーザー情報作成メソッド<br>
 	 * @param birthDay
 	 *            生年月日
-	 * @param age
-	 *            年齢
 	 * @return userInfo:ユーザー情報
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public Map<String, String> createUserInfo(Date birthDay, int age) throws Exception {
+	public Map<String, String> createUserInfo(Date birthDay) throws Exception {
 		Map userInfo = new HashMap<>();
 		// プレイ可能判断
 		if(judgeUtils.isRegisterdAge(birthDay)) {
 				userInfo.put("playF", "1");
 				
 				// 課金可能判断
-				if(judgeUtils.isBillingAge(age)) {
+				if(judgeUtils.isBillingAge(birthDay)) {
 					userInfo.put("billingF", "1");
 				} else {
 					userInfo.put("billingF", "0");
