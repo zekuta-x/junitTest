@@ -41,7 +41,7 @@ public class JudgeUtils extends MiraiPrjApplication{
 		} else {
 			// 現在の月が4～12月の場合
 			// 比較用年月日 = 現在の西暦マイナス17年した4月1日
-			compareYear = curYear - (PLAYABLE_AGE - 1);
+			compareYear = curYear - (BILLINGABLE_AGE - 1);
 			compareCal.set(compareYear, Calendar.APRIL, 1);
 			// 比較用年月日よりあとの生年月日ならエラー
 			if (birthCal.compareTo(compareCal) > 0) {
