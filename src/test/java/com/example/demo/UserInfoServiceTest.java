@@ -22,7 +22,7 @@ class UserInfoServiceTest {
 	// ********************************
 	// ケースNo1
 	// ケース内容：プレイ対象でかつ課金対象
-	// 引数：日時=現在日時, 年齢=18歳
+	// 引数：日時=現在日時
 	// Mock：isRegisterdAge(),isBillingAge()をtrueで返却
 	// 合格条件：ユーザー情報Mapに{playF=1,billingF=1}が格納されていること
 	@Test
