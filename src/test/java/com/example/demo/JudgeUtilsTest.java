@@ -238,7 +238,7 @@ class JudgeUtilsTest {
 	// ********************************
 	
 	// ケースNo1
-	// ケース内容：現在の月が4～12月で比較年月日より前(2017/04/01)
+	// ケース内容：現在の月が4～12月で比較年月日より前(2015/04/01)
 	// 引数：2000/03/31
 	// 合格条件：true
 	@Test
@@ -246,7 +246,7 @@ class JudgeUtilsTest {
 
 		// 事前処理(Mock)
 		Calendar cal = Calendar.getInstance();
-		cal.set(Calendar.YEAR, 2017);
+		cal.set(Calendar.YEAR, 2015);
 		cal.set(Calendar.MONTH, Calendar.APRIL);
 		cal.set(Calendar.DAY_OF_MONTH, 1);
 		cal.set(Calendar.HOUR, 0);
@@ -274,7 +274,7 @@ class JudgeUtilsTest {
 	}
 	
 	// ケースNo2
-	// ケース内容：現在の月が4～12月で比較年月日とイコール(2017/04/01)
+	// ケース内容：現在の月が4～12月で比較年月日とイコール(2015/04/01)
 	// 引数：2000/04/01
 	// 合格条件：true
 	@Test
@@ -282,7 +282,7 @@ class JudgeUtilsTest {
 
 		// 事前処理(Mock)
 		Calendar cal = Calendar.getInstance();
-		cal.set(Calendar.YEAR, 2017);
+		cal.set(Calendar.YEAR, 2015);
 		cal.set(Calendar.MONTH, Calendar.APRIL);
 		cal.set(Calendar.DAY_OF_MONTH, 1);
 		cal.set(Calendar.HOUR, 0);
@@ -310,7 +310,7 @@ class JudgeUtilsTest {
 	}
 
 	// ケースNo3
-	// ケース内容：現在の月が4～12月で比較年月日よりあと(2017/04/01)
+	// ケース内容：現在の月が4～12月で比較年月日よりあと(2015/04/01)
 	// 引数：2000/04/02
 	// 合格条件：false
 	@Test
@@ -318,7 +318,7 @@ class JudgeUtilsTest {
 
 		// 事前処理(Mock)
 		Calendar cal = Calendar.getInstance();
-		cal.set(Calendar.YEAR, 2017);
+		cal.set(Calendar.YEAR, 2015);
 		cal.set(Calendar.MONTH, Calendar.APRIL);
 		cal.set(Calendar.DAY_OF_MONTH, 1);
 		cal.set(Calendar.HOUR, 0);
@@ -346,7 +346,7 @@ class JudgeUtilsTest {
 	}
 	
 	// ケースNo4
-	// ケース内容：現在の月が1～3月で比較年月日よりまえ(2018/03/31)
+	// ケース内容：現在の月が1～3月で比較年月日よりまえ(2016/03/31)
 	// 引数：2000/03/31
 	// 合格条件：true
 	@Test
@@ -354,7 +354,7 @@ class JudgeUtilsTest {
 
 		// 事前処理(Mock)
 		Calendar cal = Calendar.getInstance();
-		cal.set(Calendar.YEAR, 2018);
+		cal.set(Calendar.YEAR, 2016);
 		cal.set(Calendar.MONTH, Calendar.MARCH);
 		cal.set(Calendar.DAY_OF_MONTH, 31);
 		cal.set(Calendar.HOUR, 0);
@@ -382,7 +382,7 @@ class JudgeUtilsTest {
 	}
 	
 	// ケースNo5
-	// ケース内容：現在の月が1～3月で比較年月日とイコール(2018/03/31)
+	// ケース内容：現在の月が1～3月で比較年月日とイコール(2016/03/31)
 	// 引数：2000/04/01
 	// 合格条件：true
 	@Test
@@ -390,7 +390,7 @@ class JudgeUtilsTest {
 
 		// 事前処理(Mock)
 		Calendar cal = Calendar.getInstance();
-		cal.set(Calendar.YEAR, 2018);
+		cal.set(Calendar.YEAR, 2016);
 		cal.set(Calendar.MONTH, Calendar.MARCH);
 		cal.set(Calendar.DAY_OF_MONTH, 31);
 		cal.set(Calendar.HOUR, 0);
@@ -418,7 +418,7 @@ class JudgeUtilsTest {
 	}
 
 	// ケースNo6
-	// ケース内容：現在の月が1～3月で比較年月日とよりあと(2017/03/31)
+	// ケース内容：現在の月が1～3月で比較年月日とよりあと(2015/03/31)
 	// 引数：2000/03/31
 	// 合格条件：false
 	@Test
@@ -426,7 +426,7 @@ class JudgeUtilsTest {
 
 		// 事前処理(Mock)
 		Calendar cal = Calendar.getInstance();
-		cal.set(Calendar.YEAR, 2017);
+		cal.set(Calendar.YEAR, 2015);
 		cal.set(Calendar.MONTH, Calendar.MARCH);
 		cal.set(Calendar.DAY_OF_MONTH, 31);
 		cal.set(Calendar.HOUR, 0);
