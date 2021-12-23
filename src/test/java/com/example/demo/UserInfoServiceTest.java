@@ -22,7 +22,7 @@ class UserInfoServiceTest {
 	// ********************************
 	// ケースNo1
 	// ケース内容：プレイ対象でかつ課金対象
-	// 引数：日時=現在日時, 年齢=18歳
+	// 引数：日時=現在日時
 	// Mock：isRegisterdAge(),isBillingAge()をtrueで返却
 	// 合格条件：ユーザー情報Mapに{playF=1,billingF=1}が格納されていること
 	@Test
@@ -121,32 +121,7 @@ class UserInfoServiceTest {
 	// 引数：日時=現在日時
 	// Mock：isRegisterdAge(),isBillingAge()をfalseで返却
 	// 合格条件：ユーザー情報Mapに{playF=0,billingF=0}が格納されていること
-	@Test
-	public void testCreateUserInfo_プレイ対象でない_課金対象でない() throws Exception {
-		// 引数
-		Date date = new Date();
 
-		// 実行
-		MockUp<JudgeUtils> mock = new MockUp<JudgeUtils>() {
-			@Mock
-			public boolean isRegisterdAge(Date birthDay) {
-				return false;
-			}
-			@Mock
-			public boolean isBillingAge(Date birthDay) {
-				return false;
-			}
-		};
-		
-		Map<String, String> actual = target.createUserInfo(date);
-		
-		// 結果
-		assertThat(actual.size(), is(2));
-		assertThat(actual.get("playF"), is("0"));
-		assertThat(actual.get("billingF"), is("0"));
-		
-		mock.tearDown();
-	}
 
 	
 	// ********************************
@@ -227,19 +202,7 @@ class UserInfoServiceTest {
 	// ケース内容：プレイ対象でない、かつ、課金対象でない
 	// 引数：{playF=0,billingF=0}のMap
 	// 合格条件：「ユーザ情報登録なし：プレイ不可のため」が返却されること
-	@Test
-	public void testRegistUserInfo_プレイ対象でない_課金対象でない() throws Exception {
-		// 引数
-		Map<Object, Object> userInfo = new HashMap<Object, Object>() {
-			{ put("playF", "0"); };
-			{ put("billingF","0"); };
-		};	
-		// 実行
-		String actual = target.registUserInfo(userInfo);
-		
-		// 結果
-		assertThat(actual, is("ユーザ情報登録なし：プレイ不可のため"));
-	}
+
 	
 	// ケースNo6
 	// ケース内容：想定外のユーザー情報
