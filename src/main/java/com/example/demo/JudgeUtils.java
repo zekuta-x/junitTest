@@ -5,7 +5,6 @@ import java.util.Date;
 
 public class JudgeUtils extends MiraiPrjApplication {
 
-	
 	// 定数
 	public static final int AGE = 18;
 

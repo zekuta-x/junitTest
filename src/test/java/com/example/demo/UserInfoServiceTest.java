@@ -16,7 +16,6 @@ class UserInfoServiceTest {
 	
 	private UserInfoService target = new UserInfoService();
 
-
 	// ********************************
 	// createUserInfo()
 	// ********************************

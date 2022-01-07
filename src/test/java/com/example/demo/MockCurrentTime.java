@@ -5,7 +5,6 @@ import java.util.Date;
 import mockit.Mock;
 import mockit.MockUp;
 
-
 // Mock Date用クラス
 class MockCurrentTime extends MockUp<System>{
 

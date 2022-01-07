@@ -9,10 +9,5 @@ class MiraiPrjApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-	
-	@Test
-	public void applicationContextTest() {
-		//MiraiPrjApplication.main(new String[] {});
-	}
 
 }
