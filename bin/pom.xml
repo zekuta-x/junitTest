@@ -9,10 +9,11 @@
 		<version>2.5.5</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
+
 	<groupId>com.example</groupId>
-	<artifactId>saiyo_prj</artifactId>
+	<artifactId>junitTest</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>saiyo_prj</name>
+	<name>junitTest</name>
 	<description>Demo project for Spring Boot</description>
 	<repositories>
 		<repository>
@@ -59,6 +60,12 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.jmockit</groupId>
+			<artifactId>jmockit</artifactId>
+			<version>1.21</version>
+		<scope>test</scope>
+	</dependency>
 	</dependencies>
 
 	<build>
@@ -81,21 +88,32 @@
 				<version>0.8.2</version>
 				<executions>
 					<execution>
+						<id>default-prepare-agent</id>
 						<goals>
 							<goal>prepare-agent</goal>
 						</goals>
 					</execution>
 					<execution>
-						<id>report</id>
-						<phase>prepare-package</phase>
+						<id>default-report</id>
 						<goals>
 							<goal>report</goal>
 						</goals>
+					</execution>
+					<execution>
+						<id>default-check</id>
+						<goals>
+							<goal>check</goal>
+						</goals>
+						<configuration>
+							<rules>
+							</rules>
+						</configuration>
 					</execution>
 				</executions>
 			</plugin>
 		</plugins>
 	</build>
+
 	<reporting>
 		<plugins>
 			<plugin>
